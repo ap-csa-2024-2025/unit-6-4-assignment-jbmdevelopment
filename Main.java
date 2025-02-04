@@ -66,7 +66,7 @@ public class Main
         }
         if(currentCount > counter) {
             counter = currentCount;
-            mode = arr[i];
+            mode = arr[i]; // current element...
         }
     }
     return mode;
