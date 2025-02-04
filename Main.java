@@ -64,7 +64,6 @@ public class Main
                 currentCount++;
             }
         }
-        System.out.println(currentCount);
         if(currentCount > counter) {
             counter = currentCount;
             mode = arr[i];
