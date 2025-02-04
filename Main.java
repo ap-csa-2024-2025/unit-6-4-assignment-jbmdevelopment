@@ -4,7 +4,6 @@ public class Main
 {
   public static void main(String[] args)
   {
-    // Create some arrays here to test your methods
     String[] test = {"Poop", "Toilet", "Noob"};
     System.out.println(countLength(test, 4));
     double[] test1 = {0.2, 0.4, 0.6};
@@ -14,6 +13,8 @@ public class Main
     int[] test4 = {3, 4, 5};
     System.out.println(hasDuplicates(test3));
     System.out.println(hasDuplicates(test4));
+    String[] test5 = {"Bob", "Bily", "Bob", "Billy", "Bob"};
+    System.out.println("Mode: " + findMode(test5));
   }
 
   public static int countLength(String[] arr, int targetLength)
@@ -55,21 +56,20 @@ public class Main
   public static String findMode(String[] arr)
   {
     int counter = 0; // max
-    String mostAppearing;
+    String mode = null;
     for(int i = 0; i < arr.length; i++) {
         int currentCount = 0; // reset every iteration...
-        String elem1 = arr[i];
         for(int j = 0; j < arr.length; j++) {
-            String elem2 = arr[j];
-            if(elem2.equals(elem1)) {
+            if(arr[i].equals(arr[j])) {
                 currentCount++;
             }
         }
-        if(count > currentCount) {
+        System.out.println(currentCount);
+        if(currentCount > counter) {
             counter = currentCount;
-            mostAppearing = arr[i];
+            mode = arr[i];
         }
     }
-    return mostAppearing;
+    return mode;
   }
 }
