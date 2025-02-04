@@ -10,7 +10,10 @@ public class Main
     double[] test1 = {0.2, 0.4, 0.6};
     System.out.println(indexOf(test1, 0.2));
     System.out.println(indexOf(test1, 0.9));
-    int[] test2 = {1, 2, 3, 4, 5, 1};
+    int[] test3 = {3, 4, 5, 3};
+    int[] test4 = {3, 4, 5};
+    System.out.println(hasDuplicates(test3));
+    System.out.println(hasDuplicates(test4));
   }
 
   public static int countLength(String[] arr, int targetLength)
@@ -38,10 +41,12 @@ public class Main
   {
     // replace with your code
     
-    for(int i = 0; i < arr.length; I++) {
+    for(int i = 0; i < arr.length; i++) {
       int element = arr[i];
-      for(int j = i + 1;) j < arr.length; j++) {
-        
+      for(int j = i + 1; j < arr.length; j++) {
+        if(arr[j] == element) {
+          return true;
+        }
       }
     }
     return false;
@@ -49,7 +54,22 @@ public class Main
 
   public static String findMode(String[] arr)
   {
-    // replace with your code
-    return null;
+    int counter = 0; // max
+    String mostAppearing;
+    for(int i = 0; i < arr.length; i++) {
+        int currentCount = 0; // reset every iteration...
+        String elem1 = arr[i];
+        for(int j = 0; j < arr.length; j++) {
+            String elem2 = arr[j];
+            if(elem2.equals(elem1)) {
+                currentCount++;
+            }
+        }
+        if(count > currentCount) {
+            counter = currentCount;
+            mostAppearing = arr[i];
+        }
+    }
+    return mostAppearing;
   }
 }
